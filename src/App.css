@@ -1,0 +1,271 @@
+header {
+    background-color: #131313;
+    height: 170px;
+}
+
+header .header-content{
+    width: 100%;
+    max-width: 69rem;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+header .header-content button{
+    height: 40px;
+    width: 135px;
+    background-color: #2b7a56;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 600;
+    transition: all .3s;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #1d573d;
+    }
+}
+
+.summary {
+    width: 100%;
+    margin-top: -65px;
+}
+
+.summary .summary-container {
+    width: 100%;
+    max-width: 69rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 0 auto;
+}
+
+.summary .summary-card{
+    height: 120px;
+    background-color: #323238;
+    border-radius: 7px;
+    padding: 20px;
+    color: #fff;
+    transition: all .3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.summary .summary-card > div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.summary .summary-card > div > svg{
+    height: 30px;
+    width: 30px;
+}
+
+.summary .summary-card:first-child svg{
+    color: #2b7a56;
+}
+
+.summary .summary-card:nth-child(2) svg{
+    color: #eb5865;
+}
+
+.summary .summary-card:last-child{
+    background-color: #2b7a56;
+}
+
+.summary .summary-card:last-child{
+    background-color: #2b7a56;
+}
+
+.summary .summary-card > p{
+   font-size: 2rem;
+}
+
+.form-container {
+    width: 100%;
+    padding-top: 50px;
+}
+
+.form-container form{
+    width: 100%;
+    max-width: 69rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-container form input{
+    width: 89%;
+    height: 50px;
+    border-radius: 7px;
+    border: none;
+    background-color: #121214;
+    padding-left: 20px;
+    color: #fff;
+
+    &:focus {
+        outline: 2px solid #00b37e;
+    }
+}
+
+.form-container form button{
+    width: 10%;
+    height: 50px;
+    border-radius: 7px;
+    border: none;
+    background-color: transparent;
+    border: 2px solid #00b37e;
+    color: #00b37e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all .3s;
+
+    &:hover {
+        background-color: #00b37e;
+        color: #fff;
+    }
+}
+
+.transactions-container {
+    padding-top: 20px;
+    width: 100%;
+    max-width: 69rem;
+    margin: 0 auto;
+}
+
+.transactions-container table{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 7px;
+}
+
+.transactions-container tr{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 30px 10px 30px;
+    background-color: #29292e;
+    border-radius: 7px;
+    color: #fff;
+    transition: all .3s;
+
+    &:hover.plus {
+        border: 2px solid #2b7a56;
+        transform: scale(1.03);
+    }
+
+    &:hover.minus {
+        border: 2px solid #f75a68;
+        transform: scale(1.03);
+    }
+}
+
+.transactions-container tr td:nth-child(1){
+    width: 50%;
+}
+
+.transactions-container tr td:nth-child(2){
+    width: 20%;
+}
+
+.transactions-container tr td:nth-child(3){
+    width: 20%;
+}
+
+.transactions-container tr td:nth-child(4){
+    width: 10%;
+}
+
+.transactions-container tr.plus td:nth-child(2){
+    color: #00b37e;
+}
+
+.transactions-container tr.minus td:nth-child(2){
+    color: #f75a68;
+}
+
+body > div:nth-child(4) {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: rgba(34, 34, 34, 0.733);
+    z-index: 8;
+}
+
+body > div:nth-child(5) {
+    position: fixed;
+    height: 320px;
+    width: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #323238;
+    z-index: 9;
+    border-radius: 8px;
+    padding: 40px;
+    color: #fff;
+}
+
+body > div:nth-child(5) > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+}
+
+body > div:nth-child(5) > div button{
+    background-color: transparent;
+    border: none;
+}
+
+body > div:nth-child(5) > div button svg{
+    color: #fff;
+    height: 35px;
+    width: 35px;
+}
+
+body > div:nth-child(5) form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+body > div:nth-child(5) form input {
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+    background-color: #121214;
+    border: none;
+    color: #fff;
+    border-radius: 6px;
+}
+
+body > div:nth-child(5) form button {
+    width: 100%;
+    height: 40px;
+    border-radius: 6px;
+    border: none;
+    background-color: #00b37e;
+    color: #fff;
+    cursor: pointer;
+}

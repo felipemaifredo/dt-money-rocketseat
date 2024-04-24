@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  :focus {
+    outline: none;
+  }
+}
+
+body {
+  background-color: #1d1d1f;
+  font-family: Arial, Helvetica, sans-serif;
+}
