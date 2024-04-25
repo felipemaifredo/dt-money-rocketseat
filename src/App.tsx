@@ -1,9 +1,13 @@
+import { useContext } from "react"
 import "./App.css"
 import { Header } from "./components/Header"
 import { Summary } from "./components/Summary"
-import { FaSearch } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa"
+import { TransactionContext } from "./contexts/TransactionsContext"
 
 function App() {
+  const { transactions } = useContext(TransactionContext)
+
   return (
     <>
       <Header />
@@ -16,18 +20,15 @@ function App() {
       </div>
       <div className="transactions-container">
         <table>
-          <tr className="plus">
-            <td>Desenvolvimento de site</td>
-            <td>R$ 12.000,00</td>
-            <td>Venda</td>
-            <td>13/04/2022</td>
-          </tr>
-          <tr className="minus">
-            <td>Hamburguer</td>
-            <td>- R$ 50,00</td>
-            <td>Alimentação</td>
-            <td>13/04/2022</td>
-          </tr>
+          {transactions.map((transaction) => (
+            <tr className={transaction.type === "income" ? "plus" : "minus"}>
+              <td>{transaction.description}</td>
+              <td>{transaction.type === "income" ? "" : "-"}  R$ {transaction.price}</td>
+              <td>{transaction.category}</td>
+              <td>{transaction.createdAt}</td>
+            </tr>
+          ))}
+
         </table>
       </div>
     </>

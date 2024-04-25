@@ -212,7 +212,7 @@ body > div:nth-child(4) {
 
 body > div:nth-child(5) {
     position: fixed;
-    height: 320px;
+    height: auto;
     width: 400px;
     top: 50%;
     left: 50%;
@@ -268,4 +268,71 @@ body > div:nth-child(5) form button {
     background-color: #00b37e;
     color: #fff;
     cursor: pointer;
+}
+
+.transaction-type {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 15px 0;
+}
+
+.transaction-type input{
+    display: none;
+}
+
+.transaction-type label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: 48%;
+    background-color: #29292e;
+    height: 50px;
+    border-radius: 7px;
+    transition: all .2s;
+    border: 2px solid transparent;
+    cursor: pointer;
+
+    &.plus svg {
+        color: #00b37e;
+    }
+
+    &.minus svg {
+        color: #f75a68;
+    }
+
+    &.plus:hover {
+        border-color: #00b37e;
+    }
+
+    &.minus:hover {
+        border-color: #f75a68;
+    }
+}
+
+#transaction-plus:checked + .plus {
+    background-color: #00b37e;
+
+    & svg {
+        color: #fff;
+    }
+}
+
+#transaction-minus:checked + .minus {
+    background-color: #f75a68;
+
+    & svg {
+        color: #fff;
+    }
+}
+
+
+.transaction-type label p{
+    font-size: 1.3rem ;
+}
+
+.transaction-type label svg{
+    width: 1.3rem;
+    height: 1.3rem;
 }
