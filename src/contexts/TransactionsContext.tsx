@@ -1,47 +1,4 @@
-import { createContext, ReactNode, useState, useEffect } from "react"
-
-const transactionsData: TransactionType[] = [
-    {
-        id: 1,
-        description: "Salário",
-        type: "income",
-        price: 2500,
-        category: "Trabalho",
-        createdAt: "24/04/2024"
-    },
-    {
-        id: 2,
-        description: "Compra de mantimentos",
-        type: "outcome",
-        price: 150,
-        category: "Alimentação",
-        createdAt: "24/04/2024"
-    },
-    {
-        id: 3,
-        description: "Pagamento do aluguel",
-        type: "outcome",
-        price: 1000,
-        category: "Moradia",
-        createdAt: "24/04/2024"
-    },
-    {
-        id: 4,
-        description: "Pagamento do aluguel",
-        type: "outcome",
-        price: 1000,
-        category: "Moradia",
-        createdAt: "24/04/2024"
-    },
-    {
-        id: 5,
-        description: "Pagamento do aluguel",
-        type: "income",
-        price: 1000,
-        category: "Moradia",
-        createdAt: "24/04/2024"
-    }
-]
+import { createContext, ReactNode, useState } from "react"
 
 interface TransactionType {
     id: number;
@@ -54,6 +11,7 @@ interface TransactionType {
 
 interface TransactionContextType {
     transactions: TransactionType[];
+    addTransaction: (transactionData: TransactionType) => void
 }
 
 interface TransactionsProviderProps {
@@ -65,15 +23,22 @@ export const TransactionContext = createContext({} as TransactionContextType)
 export function TransactionsProvider({children}: TransactionsProviderProps) {
     const [ transactions, setTransactions ] = useState<TransactionType[]>([])
 
-    useEffect(() => {
-        async function fetchData(){
-            setTransactions(transactionsData)
-        }
-        fetchData()
-    }, [])
-
+    function addTransaction(transactionData: TransactionType) {
+        setTransactions(prevData => [
+            ...prevData,
+            {
+                id: transactions.length + 1,
+                description: transactionData.description,
+                type: transactionData.type,
+                price: transactionData.price,
+                category: transactionData.category,
+                createdAt: transactionData.createdAt
+            }
+        ])
+    }
+    
     return (
-        <TransactionContext.Provider value={{ transactions }}>
+        <TransactionContext.Provider value={{ transactions, addTransaction }}>
             {children}
         </TransactionContext.Provider>
     )

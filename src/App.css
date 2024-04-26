@@ -235,7 +235,7 @@ body > div[role="dialog"] > div button{
     border: none;
 }
 
-body > div:nth-child(5) > div button svg{
+body > div[role="dialog"] > div button svg{
     color: #fff;
     height: 35px;
     width: 35px;
