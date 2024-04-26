@@ -40,7 +40,7 @@ export const Summary = () => {
                 </div>
                 <div className="summary-card">
                     <div>
-                        <p>Total</p>
+                        <p>Saldo</p>
                         <LuCircleDollarSign />
                     </div>
                     <p>

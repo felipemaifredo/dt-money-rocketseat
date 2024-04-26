@@ -200,7 +200,7 @@ header .header-content button{
     color: #f75a68;
 }
 
-body > div:nth-child(4) {
+body > div[data-state="open"] {
     position: fixed;
     height: 100vh;
     width: 100vw;
@@ -210,7 +210,7 @@ body > div:nth-child(4) {
     z-index: 8;
 }
 
-body > div:nth-child(5) {
+body > div[role="dialog"] {
     position: fixed;
     height: auto;
     width: 400px;
@@ -224,13 +224,13 @@ body > div:nth-child(5) {
     color: #fff;
 }
 
-body > div:nth-child(5) > div {
+body > div[role="dialog"] > div {
     display: flex;
     justify-content: space-between;
     align-items: center;    
 }
 
-body > div:nth-child(5) > div button{
+body > div[role="dialog"] > div button{
     background-color: transparent;
     border: none;
 }
@@ -241,7 +241,7 @@ body > div:nth-child(5) > div button svg{
     width: 35px;
 }
 
-body > div:nth-child(5) form {
+body > div[role="dialog"] form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -250,7 +250,7 @@ body > div:nth-child(5) form {
     padding: 10px 0;
 }
 
-body > div:nth-child(5) form input {
+body > div[role="dialog"] form input {
     width: 100%;
     height: 40px;
     padding-left: 10px;
@@ -260,7 +260,7 @@ body > div:nth-child(5) form input {
     border-radius: 6px;
 }
 
-body > div:nth-child(5) form button {
+body > div[role="dialog"] form button {
     width: 100%;
     height: 40px;
     border-radius: 6px;
