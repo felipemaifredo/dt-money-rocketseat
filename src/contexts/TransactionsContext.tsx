@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from "react"
+import { createContext, ReactNode, useState, useEffect  } from "react"
 
 interface TransactionType {
     id: number;
@@ -22,6 +22,18 @@ export const TransactionContext = createContext({} as TransactionContextType)
 
 export function TransactionsProvider({children}: TransactionsProviderProps) {
     const [ transactions, setTransactions ] = useState<TransactionType[]>([])
+
+    // Carregar transações do localStorage ao montar o componente
+    useEffect(() => {
+        const storedTransactions = localStorage.getItem('transactions');
+        if (storedTransactions) {
+            setTransactions(JSON.parse(storedTransactions));
+        }
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem('transactions', JSON.stringify(transactions));
+    }, [transactions])
 
     function addTransaction(transactionData: TransactionType) {
         setTransactions(prevData => [
