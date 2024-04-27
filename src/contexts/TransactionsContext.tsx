@@ -12,6 +12,7 @@ interface TransactionType {
 interface TransactionContextType {
     transactions: TransactionType[];
     addTransaction: (transactionData: TransactionType) => void
+    removeTransaction: (transactionID: number) => void
 }
 
 interface TransactionsProviderProps {
@@ -25,14 +26,14 @@ export function TransactionsProvider({children}: TransactionsProviderProps) {
 
     // Carregar transações do localStorage ao montar o componente
     useEffect(() => {
-        const storedTransactions = localStorage.getItem('transactions');
+        const storedTransactions = localStorage.getItem('transactions-dtmoney');
         if (storedTransactions) {
             setTransactions(JSON.parse(storedTransactions));
         }
     }, [])
 
     useEffect(() => {
-        localStorage.setItem('transactions', JSON.stringify(transactions));
+        localStorage.setItem('transactions-dtmoney', JSON.stringify(transactions));
     }, [transactions])
 
     function addTransaction(transactionData: TransactionType) {
@@ -48,9 +49,13 @@ export function TransactionsProvider({children}: TransactionsProviderProps) {
             }
         ])
     }
+
+    function removeTransaction(transactionID: number) {
+        setTransactions(prevData => prevData.filter(transaction => transaction.id !== transactionID))
+    }
     
     return (
-        <TransactionContext.Provider value={{ transactions, addTransaction }}>
+        <TransactionContext.Provider value={{ transactions, addTransaction, removeTransaction}}>
             {children}
         </TransactionContext.Provider>
     )
